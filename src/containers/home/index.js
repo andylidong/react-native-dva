@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-import { Button } from '@/components';
-import { Dva, Navigator } from '@/utils';
+import React, { Component } from 'react'
+import { StyleSheet, View, Image } from 'react-native'
+import { Button } from '@/components'
+import { Dva, Navigator } from '@/utils'
 
 const house = '@/images/house.png'
 
@@ -18,7 +18,7 @@ class Home extends Component {
   };
 
   gotoDetail = () => {
-    this.props.dispatch(Navigator.go({ routeName: 'Detail' }));
+    this.props.dispatch(Navigator.go({ routeName: 'Detail' }))
   }
 
   render() {
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Home;
+export default Home

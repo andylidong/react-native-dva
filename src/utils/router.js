@@ -16,4 +16,4 @@ function getActiveRouteName(navigationState) {
 
 export default {
   getActiveRouteName,
-};
+}

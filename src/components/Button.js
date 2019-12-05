@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import Touchable from './Touchable';
+import React from 'react'
+import { StyleSheet, Text } from 'react-native'
+import Touchable from './Touchable'
 
 export const Button = ({ text, children, style, textStyle, ...rest }) => (
   <Touchable style={[styles.button, style]} {...rest}>
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Button;
+export default Button

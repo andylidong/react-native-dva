@@ -1,5 +1,5 @@
-import { Dva, Navigator, Storage } from '@/utils';
-import * as authService from '@/services/auth';
+import { Dva, Navigator, Storage } from '@/utils'
+import * as authService from '@/services/auth'
 
 export default {
   namespace: 'app',

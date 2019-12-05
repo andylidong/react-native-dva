@@ -1,15 +1,16 @@
 {
-  "name": "DvaStarter",
+  "name": "RNDva",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
     "dva-core": "^1.3.0",
-    "react": "16.6.3",
-    "react-native": "0.57.8",
+    "react": "16.9.0",
+    "react-native": "^0.61.5",
     "react-navigation": "^2.5.1",
     "react-navigation-redux-helpers": "^2.0.2",
     "react-redux": "^5.0.7"

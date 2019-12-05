@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
   StackActions
-} from 'react-navigation';
+} from 'react-navigation'
 
 /**
  * 页面跳转 -- 入栈
@@ -12,9 +12,9 @@ import {
  */
 function go(navigate) {
   if (!navigate) {
-    return {};
+    return {}
   }
-  return NavigationActions.navigate(navigate);
+  return NavigationActions.navigate(navigate)
 }
 
 /**
@@ -23,9 +23,9 @@ function go(navigate) {
  */
 function back(navigate) {
   if (navigate) {
-    return NavigationActions.back(navigate);
+    return NavigationActions.back(navigate)
   }
-  return NavigationActions.back();
+  return NavigationActions.back()
 }
 
 export default {
@@ -35,4 +35,4 @@ export default {
   NavigationActions,
   createStackNavigator,
   createBottomTabNavigator,
-};
+}

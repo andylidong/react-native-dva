@@ -1,8 +1,10 @@
-import './src/index';
+import './src/index'
 
 console.ignoredYellowBox = [
-  'Warning: componentWillMount is deprecated',
-  'Warning: componentWillReceiveProps is deprecated',
-  'Warning: componentWillUpdate is deprecated',
-  'Warning: isMounted(...) is deprecated',
+  'Warning: componentWillMount has been renamed',
+  'Warning: componentWillReceiveProps has been renamed',
+  'Warning: componentWillUpdate is renamed',
+  'Warning: isMounted(...) is renamed',
 ]
+
+console.disableYellowBox = true

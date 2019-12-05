@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Button } from '@/components';
-import { Dva, Navigator } from '@/utils';
+import React, { Component } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Button } from '@/components'
+import { Dva, Navigator } from '@/utils'
 
 @Dva.connect()
 class Detail extends Component {
@@ -11,7 +11,7 @@ class Detail extends Component {
   }
 
   goBack = () => {
-    this.props.dispatch(Navigator.back({ routeName: 'Account' }));
+    this.props.dispatch(Navigator.back({ routeName: 'Account' }))
   }
 
   render() {
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Detail;
+export default Detail

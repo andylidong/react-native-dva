@@ -1,6 +1,6 @@
-import HomeTab from '../tab/HomeTab';
+import HomeTab from '../tab/HomeTab'
 import Detail from '@/containers/detail'
-import { Navigator } from '@/utils';
+import { Navigator } from '@/utils'
 
 const MainNavigator = Navigator.createStackNavigator(
   {
@@ -10,7 +10,7 @@ const MainNavigator = Navigator.createStackNavigator(
   {
     headerMode: 'float',
   }
-);
+)
 
 
-export default MainNavigator;
+export default MainNavigator

@@ -6,7 +6,7 @@ import { Provider, connect } from 'react-redux'
  * createAction 是用来描述 UI 层事件的一个对象
  * @param {*} type 
  */
-const createAction = type => payload => ({ type, payload });
+const createAction = type => payload => ({ type, payload })
 
 /**
  * dva = React-Router + Redux + Redux-saga
@@ -14,19 +14,19 @@ const createAction = type => payload => ({ type, payload });
  * @param {*} options 
  */
 function init(options) {
-  const app = create(options);
+  const app = create(options)
   // HMR workaround
-  if (!global.registered) options.models.forEach(model => app.model(model));
-  global.registered = true;
+  if (!global.registered) options.models.forEach(model => app.model(model))
+  global.registered = true
 
-  app.start();
+  app.start()
   // eslint-disable-next-line no-underscore-dangle
-  const store = app._store;
+  const store = app._store
 
-  app.start = container => () => <Provider store={store}>{container}</Provider>;
-  app.getStore = () => store;
+  app.start = container => () => <Provider store={store}>{container}</Provider>
+  app.getStore = () => store
 
-  return app;
+  return app
 }
 
 export default {
@@ -34,4 +34,4 @@ export default {
   connect,
   createAction,
   init,
-};
+}

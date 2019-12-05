@@ -1,7 +1,7 @@
 import { Animated, Easing } from 'react-native'
-import { Navigator } from '@/utils';
-import Login from '@/containers/login';
-import MainNavigator from './MainNavigator';
+import { Navigator } from '@/utils'
+import Login from '@/containers/login'
+import MainNavigator from './MainNavigator'
 
 const AppNavigator = Navigator.createStackNavigator(
   {
@@ -39,6 +39,6 @@ const AppNavigator = Navigator.createStackNavigator(
       },
     }),
   }
-);
+)
 
-export default AppNavigator;
+export default AppNavigator

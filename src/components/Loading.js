@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import React from 'react'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 
 const Loading = () => (
   <View style={styles.container}>
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Loading;
+export default Loading

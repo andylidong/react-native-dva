@@ -6,4 +6,4 @@ module.exports = {
   login: 'app/login',
   logout: 'app/logout',
   loadStorage: 'app/loadStorage',
-};
+}

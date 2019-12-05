@@ -1,22 +1,22 @@
-import React, { PureComponent } from 'react';
-import { BackHandler } from 'react-native';
+import React, { PureComponent } from 'react'
+import { BackHandler } from 'react-native'
 
 import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware,
   createNavigationReducer,
-} from 'react-navigation-redux-helpers';
+} from 'react-navigation-redux-helpers'
 
-import Loading from '@/components/Loading';
-import AppNavigator from './navigator/AppNavigator';
-import { Dva, Router, Navigator } from '@/utils';
+import Loading from '@/components/Loading'
+import AppNavigator from './navigator/AppNavigator'
+import { Dva, Router, Navigator } from '@/utils'
 
 
-export const routerReducer = createNavigationReducer(AppNavigator);
+export const routerReducer = createNavigationReducer(AppNavigator)
 
-export const routerMiddleware = createReactNavigationReduxMiddleware('root', state => state.router);
+export const routerMiddleware = createReactNavigationReduxMiddleware('root', state => state.router)
 
-const App = reduxifyNavigator(AppNavigator, 'root');
+const App = reduxifyNavigator(AppNavigator, 'root')
 
 /**
  * 整个路由管理
@@ -25,30 +25,30 @@ const App = reduxifyNavigator(AppNavigator, 'root');
 class Routers extends PureComponent {
 
   componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.backHandle);
+    BackHandler.addEventListener('hardwareBackPress', this.backHandle)
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.backHandle);
+    BackHandler.removeEventListener('hardwareBackPress', this.backHandle)
   }
 
   backHandle = () => {
-    const currentScreen = Router.getActiveRouteName(this.props.router);
+    const currentScreen = Router.getActiveRouteName(this.props.router)
     if (currentScreen === 'Login') {
-      return true;
+      return true
     }
     if (currentScreen !== 'Home') {
-      this.props.dispatch(Navigator.back());
-      return true;
+      this.props.dispatch(Navigator.back())
+      return true
     }
-    return false;
+    return false
   }
 
   render() {
-    const { app, dispatch, router } = this.props;
-    if (app.loading) return <Loading />;
-    return <App dispatch={dispatch} state={router} />;
+    const { app, dispatch, router } = this.props
+    if (app.loading) return <Loading />
+    return <App dispatch={dispatch} state={router} />
   }
 }
 
-export default Routers;
+export default Routers

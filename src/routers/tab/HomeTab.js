@@ -1,7 +1,7 @@
 
-import Home from '@/containers/home';
-import Account from '@/containers/account';
-import { Navigator } from '@/utils';
+import Home from '@/containers/home'
+import Account from '@/containers/account'
+import { Navigator } from '@/utils'
 
 const HomeTab = Navigator.createBottomTabNavigator({
   Home: { screen: Home },
@@ -16,4 +16,4 @@ HomeTab.navigationOptions = ({ navigation }) => {
   }
 }
 
-export default HomeTab;
+export default HomeTab
