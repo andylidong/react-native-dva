@@ -32,6 +32,7 @@
     "react/static-property-placement": "off",
     "react/prefer-stateless-function": "off",
     "no-new-func": "off",
+    "no-console": "warn",
     "no-param-reassign": "off",
     "no-restricted-syntax": "off",
     "no-use-before-define": "off",
