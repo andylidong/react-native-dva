@@ -21,6 +21,22 @@ The builtin router of **dva** (not **react-router v4**), doesn't support React N
 
 Also there is another workaround for a missing feature https://github.com/react-community/react-navigation/issues/232, so I use two **StackNavigators** to contain the screens with different transition animations, you can create you own transition animations via **transitionConfig**, see https://github.com/react-community/react-navigation/pull/99
 
+
+## 整合遇到的问题
+### 打包后无法正常运行的情况
+1.错误的使用dva-no-router,这是react项目使用的，并不适用于rn,改用dva-core + react-redux
+2.解构失败: const value = ({}) => { ... } 是不允许的， 会报错 
+```
+ReactNativeJS: 'Unhandled promise rejection', { [TypeError: undefined is not a function (evaluating 'babelHelpers.objectDestructuringEmpty(r)')]
+```
+### mac运行出现错误
+```
+Could not install the app on the device, read the error above for details.Make sure you have an Android emulator running or a device connected and have set up your Android development environment:
+https://facebook.github.io/react-native/docs/android-setup.html
+```
+解决办法：
+在根目录下运行：chmod 755 android/gradlew 然后就解决了
+
 ## LICENSE
 
 MIT
