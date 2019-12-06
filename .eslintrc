@@ -19,6 +19,7 @@
     "import/no-unresolved": "off",
     "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": "off",
+    "react/sort-comp": "off",
     "react/prop-types": "off",
     "react/jsx-indent": "off",
     "react/jsx-no-bind": "off",
