@@ -4,7 +4,7 @@ import action from '@/constants/action'
 import { Dva, Navigator } from '@/utils'
 import { Button, Touchable } from '@/components'
 
-const close = '@/images/close.png'
+const close = '../../images/close.png'
 
 @Dva.connect(({ app }) => ({ ...app }))
 class Login extends Component {

@@ -4,7 +4,7 @@ import { Button } from '@/components'
 import { Dva, Navigator } from '@/utils'
 import action from '@/constants/action'
 
-const person = '@/images/person.png'
+const person = '../../images/person.png'
 
 @Dva.connect(({ app }) => ({ ...app }))
 class Account extends Component {

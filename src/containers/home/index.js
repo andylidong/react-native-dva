@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from 'react-native'
 import { Button } from '@/components'
 import { Dva, Navigator } from '@/utils'
 
-const house = '@/images/house.png'
+const house = '../../images/house.png'
 
 @Dva.connect()
 class Home extends Component {

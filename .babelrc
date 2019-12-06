@@ -6,6 +6,13 @@
     }
   },
   "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
+    // 配置根目录的路径
+    ["babel-plugin-root-import", {
+      "rootPathSuffix": "./src/",
+      "rootPathPrefix": "@/"
+    }]
   ]
 }
