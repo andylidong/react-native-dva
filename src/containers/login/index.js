@@ -1,28 +1,29 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, Image, ActivityIndicator } from 'react-native'
-import action from '@/constants/action'
-import { Dva, Navigator } from '@/utils'
-import { Button, Touchable } from '@/components'
+import React, { Component } from 'react';
+import {
+  StyleSheet, View, Image, ActivityIndicator,
+} from 'react-native';
+import action from '@/constants/action';
+import { Dva, Navigator } from '@/utils';
+import { Button, Touchable } from '@/components';
 
-const close = '../../images/close.png'
+const close = '@/images/close.png';
 
 @Dva.connect(({ app }) => ({ ...app }))
 class Login extends Component {
-
   static navigationOptions = {
     title: 'Login',
   };
 
   renderLoading() {
-    const { fetching } = this.props
+    const { fetching } = this.props;
     if (fetching) {
-      return <ActivityIndicator />
+      return <ActivityIndicator />;
     }
-    return <Button text="Login" onPress={this.onLogin} />
+    return <Button text="Login" onPress={this.onLogin} />;
   }
 
   renderClose() {
-    const { fetching } = this.props
+    const { fetching } = this.props;
     if (!fetching) {
       return (
         <Touchable style={styles.close} onPress={this.onClose}>
@@ -31,9 +32,9 @@ class Login extends Component {
             source={require(close)}
           />
         </Touchable>
-      )
+      );
     }
-    return null
+    return null;
   }
 
   render() {
@@ -42,15 +43,15 @@ class Login extends Component {
         {this.renderLoading()}
         {this.renderClose()}
       </View>
-    )
+    );
   }
 
   onLogin = () => {
-    this.props.dispatch(Dva.createAction(action.login)())
+    this.props.dispatch(Dva.createAction(action.login)());
   }
 
   onClose = () => {
-    this.props.dispatch(Navigator.back())
+    this.props.dispatch(Navigator.back());
   }
 }
 
@@ -70,6 +71,6 @@ const styles = StyleSheet.create({
     height: 24,
     tintColor: 'gray',
   },
-})
+});
 
-export default Login
+export default Login;

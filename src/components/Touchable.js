@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native';
 
-const Touchable = props => <TouchableOpacity activeOpacity={0.8} {...props} />
+const Touchable = (props) => <TouchableOpacity activeOpacity={0.8} {...props} />;
 
-export default Touchable
+export default Touchable;

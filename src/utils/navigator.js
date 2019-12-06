@@ -1,31 +1,30 @@
 import {
   NavigationActions,
-  NavigationNavigateAction,
   createBottomTabNavigator,
   createStackNavigator,
-  StackActions
-} from 'react-navigation'
+  StackActions,
+} from 'react-navigation';
 
 /**
  * 页面跳转 -- 入栈
- * @param {*} navigate 
+ * @param {*} navigate
  */
 function go(navigate) {
   if (!navigate) {
-    return {}
+    return {};
   }
-  return NavigationActions.navigate(navigate)
+  return NavigationActions.navigate(navigate);
 }
 
 /**
  * 页面跳转 -- 出栈
- * @param {*} navigate 
+ * @param {*} navigate
  */
 function back(navigate) {
   if (navigate) {
-    return NavigationActions.back(navigate)
+    return NavigationActions.back(navigate);
   }
-  return NavigationActions.back()
+  return NavigationActions.back();
 }
 
 export default {
@@ -35,4 +34,4 @@ export default {
   NavigationActions,
   createStackNavigator,
   createBottomTabNavigator,
-}
+};

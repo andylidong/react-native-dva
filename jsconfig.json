@@ -1,8 +1,15 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "experimentalDecorators": true,
+    "target": "ES6",
+    "module": "commonjs",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    // VSCode配置路径信息
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
     "node_modules"

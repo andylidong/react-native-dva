@@ -10,9 +10,9 @@
       "legacy": true
     }],
     // 配置根目录的路径
-    ["babel-plugin-root-import", {
-      "rootPathSuffix": "./src/",
-      "rootPathPrefix": "@/"
-    }]
+    // ["babel-plugin-root-import", {
+    //   "rootPathSuffix": "./src/",
+    //   "rootPathPrefix": "@/"
+    // }]
   ]
 }

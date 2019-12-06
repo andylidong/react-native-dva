@@ -1,33 +1,40 @@
 {
+  "extends": "airbnb",
   "parser": "babel-eslint",
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true,
+    "mocha": true
   },
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import",
-    "prettier"
-  ],
   "globals": {
-    "__DEV__": true
+    "Babel": true,
+    "React": true
   },
+  "plugins": [
+    "react"
+  ],
   "rules": {
-    "arrow-parens": 0,
-    "global-require": 0,
-    "import/prefer-default-export": 0,
-    "no-console": 0,
-    "no-mixed-operators": 0,
-    "no-use-before-define": 0,
-    "radix": 0,
-    "react/destructuring-assignment": 0,
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": 0,
-    "semi": [2, "never"]
+    "global-require": "off",
+    "object-curly-newline": "off",
+    "import/no-unresolved": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/prop-types": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-multi-comp": "off",
+    "react/jsx-curly-newline": "off",
+    "react/state-in-constructor": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/destructuring-assignment": "off",
+    "react/static-property-placement": "off",
+    "react/prefer-stateless-function": "off",
+    "no-new-func": "off",
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "no-use-before-define": "off",
+    "no-underscore-dangle": "off"
   }
 }

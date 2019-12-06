@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, Image } from 'react-native'
-import { Button } from '@/components'
-import { Dva, Navigator } from '@/utils'
-import action from '@/constants/action'
+import React, { Component } from 'react';
+import { StyleSheet, View, Image } from 'react-native';
+import { Button } from '@/components';
+import { Dva, Navigator } from '@/utils';
+import action from '@/constants/action';
 
-const person = '../../images/person.png'
+const person = '@/images/person.png';
 
 @Dva.connect(({ app }) => ({ ...app }))
 class Account extends Component {
-
   static navigationOptions = {
     tabBarLabel: 'Account',
     tabBarIcon: ({ focused, tintColor }) => (
@@ -20,11 +19,11 @@ class Account extends Component {
   }
 
   renderContainer() {
-    const { login } = this.props
+    const { login } = this.props;
     if (login) {
-      return <Button text="Logout" onPress={this.logout} />
+      return <Button text="Logout" onPress={this.logout} />;
     }
-    return <Button text="Goto Login" onPress={this.gotoLogin} />
+    return <Button text="Goto Login" onPress={this.gotoLogin} />;
   }
 
 
@@ -33,15 +32,15 @@ class Account extends Component {
       <View style={styles.container}>
         {this.renderContainer()}
       </View>
-    )
+    );
   }
 
   gotoLogin = () => {
-    this.props.dispatch(Navigator.go({ routeName: 'Login' }))
+    this.props.dispatch(Navigator.go({ routeName: 'Login' }));
   }
 
   logout = () => {
-    this.props.dispatch(Dva.createAction(action.logout)())
+    this.props.dispatch(Dva.createAction(action.logout)());
   }
 }
 
@@ -55,6 +54,6 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
-})
+});
 
-export default Account
+export default Account;

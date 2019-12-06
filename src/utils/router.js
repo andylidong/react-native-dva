@@ -1,19 +1,19 @@
 /**
  * 获取路径的名称
- * @param {*} navigationState 
+ * @param {*} navigationState
  */
 function getActiveRouteName(navigationState) {
   if (!navigationState) {
-    return null
+    return null;
   }
-  const route = navigationState.routes[navigationState.index]
+  const route = navigationState.routes[navigationState.index];
   if (route.routes) {
-    return getActiveRouteName(route)
+    return getActiveRouteName(route);
   }
-  return route.routeName
+  return route.routeName;
 }
 
 
 export default {
   getActiveRouteName,
-}
+};

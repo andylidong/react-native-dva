@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, Image } from 'react-native'
-import { Button } from '@/components'
-import { Dva, Navigator } from '@/utils'
+import React, { Component } from 'react';
+import { StyleSheet, View, Image } from 'react-native';
+import { Button } from '@/components';
+import { Dva, Navigator } from '@/utils';
 
-const house = '../../images/house.png'
+const house = '@/images/house.png';
 
-@Dva.connect()
+@Dva.connect(({ app }) => ({ ...app }))
 class Home extends Component {
   static navigationOptions = {
     tabBarLabel: 'Home',
@@ -18,7 +18,7 @@ class Home extends Component {
   };
 
   gotoDetail = () => {
-    this.props.dispatch(Navigator.go({ routeName: 'Detail' }))
+    this.props.dispatch(Navigator.go({ routeName: 'Detail' }));
   }
 
   render() {
@@ -26,7 +26,7 @@ class Home extends Component {
       <View style={styles.container}>
         <Button text="Goto Detail" onPress={this.gotoDetail} />
       </View>
-    )
+    );
   }
 }
 
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
-})
+});
 
-export default Home
+export default Home;
