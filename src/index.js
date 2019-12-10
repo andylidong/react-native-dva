@@ -1,13 +1,16 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { Dva } from './utils';
 import models from './models';
-import Routers, { routerMiddleware, routerReducer } from './routers';
+import { Dva, Navigator } from './utils';
+import Routers from './routers';
+import AppNavigator from '@/routers/navigator/AppNavigator';
+
+const { routerMiddleware, routerReducer } = Navigator;
 
 const app = Dva.init({
   initialState: {},
   models,
-  extraReducers: { router: routerReducer },
+  extraReducers: { router: routerReducer(AppNavigator) },
   onAction: [routerMiddleware],
   onError(e) {
     console.log('onError', e);

@@ -5,6 +5,51 @@ import {
   StackActions,
 } from 'react-navigation';
 
+import {
+  reduxifyNavigator,
+  createReactNavigationReduxMiddleware,
+  createNavigationReducer,
+} from 'react-navigation-redux-helpers';
+
+/**
+ * 创建APP的组件
+ */
+const App = (index) => reduxifyNavigator(index, 'root');
+
+/**
+ * 创建导航的reducer
+ */
+const routerReducer = (index) => createNavigationReducer(index);
+
+/**
+ * 路径的中间件
+ */
+const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => {
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
+    console.log('state ', state);
+  }
+  if (state.router) {
+    return state.router;
+  }
+  return null;
+});
+
+/**
+ * 获取路径的名称
+ * @param {*} navigationState
+ */
+function getActiveRouteName(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  if (route.routes) {
+    return getActiveRouteName(route);
+  }
+  return route.routeName;
+}
+
 /**
  * 页面跳转 -- 入栈
  * @param {*} navigate
@@ -34,4 +79,10 @@ export default {
   NavigationActions,
   createStackNavigator,
   createBottomTabNavigator,
+  // 和reducer有关的组件、中间件
+  routerReducer,
+  routerMiddleware,
+  App,
+  // 其他的方法
+  getActiveRouteName,
 };

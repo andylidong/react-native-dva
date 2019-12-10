@@ -6,7 +6,6 @@ import action from '@/constants/action';
 
 const person = '@/images/person.png';
 
-@Dva.connect(({ app }) => ({ ...app }))
 class Account extends Component {
   static navigationOptions = {
     tabBarLabel: 'Account',
@@ -56,4 +55,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Account;
+const mapStateToProps = (state) => {
+  const { loading, app } = state;
+  return { app, loading };
+};
+
+export default Dva.connect(mapStateToProps)(Account);

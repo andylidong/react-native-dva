@@ -1,29 +1,19 @@
 import React, { PureComponent } from 'react';
 import { BackHandler } from 'react-native';
-
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware,
-  createNavigationReducer,
-} from 'react-navigation-redux-helpers';
-
 import Loading from '@/components/Loading';
-import AppNavigator from './navigator/AppNavigator';
-import { Dva, Router, Navigator } from '@/utils';
+import { Dva, Navigator } from '@/utils';
+import AppNavigator from '@/routers/navigator/AppNavigator';
 
-
-export const routerReducer = createNavigationReducer(AppNavigator);
-
-export const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => state.router);
-
-const App = reduxifyNavigator(AppNavigator, 'root');
+const { App } = Navigator;
+const AppContainer = App(AppNavigator);
 
 /**
  * 整个路由管理
  */
 @Dva.connect(({ app, router }) => ({ app, router }))
 class Routers extends PureComponent {
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this.backHandle);
   }
 
@@ -32,7 +22,7 @@ class Routers extends PureComponent {
   }
 
   backHandle = () => {
-    const currentScreen = Router.getActiveRouteName(this.props.router);
+    const currentScreen = Navigator.getActiveRouteName(this.props.router);
     if (currentScreen === 'Login') {
       return true;
     }
@@ -46,7 +36,7 @@ class Routers extends PureComponent {
   render() {
     const { app, dispatch, router } = this.props;
     if (app.loading) return <Loading />;
-    return <App dispatch={dispatch} state={router} />;
+    return <AppContainer dispatch={dispatch} state={router} />;
   }
 }
 
