@@ -25,7 +25,7 @@ const routerReducer = (index) => createNavigationReducer(index);
  * 路径的中间件
  */
 const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.log('state ', state);
   }
