@@ -14,7 +14,6 @@
     "react"
   ],
   "rules": {
-    "no-undef":"off",
     "global-require": "off",
     "object-curly-newline": "off",
     "import/extensions": "off",
