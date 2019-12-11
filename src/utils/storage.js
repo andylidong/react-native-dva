@@ -1,24 +1,24 @@
 import { AsyncStorage } from 'react-native';
 
-function clear() {
+export function clear() {
   return AsyncStorage.clear();
 }
 
-function get(key, defaultValue = null) {
+export function get(key, defaultValue = null) {
   return AsyncStorage.getItem(key).then(
     (value) => (value !== null ? JSON.parse(value) : defaultValue),
   );
 }
 
-function set(key, value) {
+export function set(key, value) {
   return AsyncStorage.setItem(key, JSON.stringify(value));
 }
 
-function remove(key) {
+export function remove(key) {
   return AsyncStorage.removeItem(key);
 }
 
-function multiGet(...keys) {
+export function multiGet(...keys) {
   return AsyncStorage.multiGet([...keys]).then((stores) => {
     const data = {};
     stores.forEach((result, i, store) => {
@@ -28,7 +28,7 @@ function multiGet(...keys) {
   });
 }
 
-function multiRemove(...keys) {
+export function multiRemove(...keys) {
   return AsyncStorage.multiRemove([...keys]);
 }
 

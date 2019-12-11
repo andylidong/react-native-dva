@@ -7,14 +7,14 @@ import { Provider, connect } from 'react-redux';
  * createAction 是用来描述 UI 层事件的一个对象
  * @param {*} type
  */
-const createAction = (type) => (payload) => ({ type, payload });
+export const createAction = (type) => (payload) => ({ type, payload });
 
 /**
  * dva = React-Router + Redux + Redux-saga
  * dva 是体验技术部开发的 React 应用框架，将上面三个 React 工具库包装在一起，简化了 API，让开发 React 应用更加方便和快捷
  * @param {*} options
  */
-function init(options) {
+export function init(options) {
   const app = create(options);
   // 监听loading
   app.use(createLoading());

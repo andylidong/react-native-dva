@@ -14,17 +14,17 @@ import {
 /**
  * 创建APP的组件
  */
-const App = (index) => reduxifyNavigator(index, 'root');
+export const App = (index) => reduxifyNavigator(index, 'root');
 
 /**
  * 创建导航的reducer
  */
-const routerReducer = (index) => createNavigationReducer(index);
+export const routerReducer = (index) => createNavigationReducer(index);
 
 /**
  * 路径的中间件
  */
-const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => {
+export const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => {
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.log('state ', state);
@@ -39,7 +39,7 @@ const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) =>
  * 获取路径的名称
  * @param {*} navigationState
  */
-function getActiveRouteName(navigationState) {
+export function getActiveRouteName(navigationState) {
   if (!navigationState) {
     return null;
   }
@@ -54,7 +54,7 @@ function getActiveRouteName(navigationState) {
  * 页面跳转 -- 入栈
  * @param {*} navigate
  */
-function go(navigate) {
+export function go(navigate) {
   if (!navigate) {
     return {};
   }
@@ -65,7 +65,7 @@ function go(navigate) {
  * 页面跳转 -- 出栈
  * @param {*} navigate
  */
-function back(navigate) {
+export function back(navigate) {
   if (navigate) {
     return NavigationActions.back(navigate);
   }

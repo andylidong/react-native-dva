@@ -13,6 +13,7 @@ const app = Dva.init({
   extraReducers: { router: routerReducer(AppNavigator) },
   onAction: [routerMiddleware],
   onError(e) {
+    // eslint-disable-next-line no-console
     console.log('onError', e);
   },
 });
