@@ -1,12 +1,14 @@
 import {
   NavigationActions,
-  createBottomTabNavigator,
-  createStackNavigator,
   StackActions,
+  createAppContainer,
 } from 'react-navigation';
 
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 import {
-  reduxifyNavigator,
+  createReduxContainer,
   createReactNavigationReduxMiddleware,
   createNavigationReducer,
 } from 'react-navigation-redux-helpers';
@@ -14,7 +16,7 @@ import {
 /**
  * 创建APP的组件
  */
-export const App = (index) => reduxifyNavigator(index, 'root');
+export const App = (index) => createAppContainer(createReduxContainer(index, 'root'));
 
 /**
  * 创建导航的reducer
@@ -24,7 +26,7 @@ export const routerReducer = (index) => createNavigationReducer(index);
 /**
  * 路径的中间件
  */
-export const routerMiddleware = createReactNavigationReduxMiddleware('root', (state) => {
+export const routerMiddleware = createReactNavigationReduxMiddleware((state) => {
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.log('state ', state);
@@ -33,7 +35,7 @@ export const routerMiddleware = createReactNavigationReduxMiddleware('root', (st
     return state.router;
   }
   return null;
-});
+}, 'root');
 
 /**
  * 获取路径的名称
@@ -77,6 +79,7 @@ export default {
   back,
   StackActions,
   NavigationActions,
+  createAppContainer,
   createStackNavigator,
   createBottomTabNavigator,
   // 和reducer有关的组件、中间件
