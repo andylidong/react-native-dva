@@ -1,8 +1,9 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import models from './models';
-import { Dva, Navigator } from './utils';
 import Routers from './routers';
+import { Dva, Navigator } from './utils';
+import { name as appName } from '../app.json';
 import AppNavigator from '@/routers/navigator/AppNavigator';
 
 const { routerMiddleware, routerReducer } = Navigator;
@@ -20,4 +21,4 @@ const app = Dva.init({
 
 const App = app.start(<Routers />);
 
-AppRegistry.registerComponent('RNDva', () => App);
+AppRegistry.registerComponent(appName, () => App);
