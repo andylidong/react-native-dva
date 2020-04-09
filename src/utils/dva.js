@@ -7,7 +7,9 @@ import { Provider, connect } from 'react-redux';
  * createAction 是用来描述 UI 层事件的一个对象
  * @param {*} type
  */
-export const createAction = (type) => (payload) => ({ type, payload });
+export const createAction = (payload) => ({ type: 'updateState', payload });
+
+export const createActions = (type) => (payload) => ({ type, payload });
 
 /**
  * dva = React-Router + Redux + Redux-saga
@@ -33,6 +35,7 @@ export default {
   // connect 是一个函数，绑定 State 到 View
   connect,
   createAction,
+  createActions,
   init,
   createLoading,
 };
